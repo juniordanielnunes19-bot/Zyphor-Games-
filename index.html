@@ -1,35 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zyphor Games</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        .game-selection { margin: 20px 0; }
-        .embed-area { border: 1px solid #ccc; width: 600px; height: 400px; margin: 20px 0; }
-    </style>
+    <title>Zyphor Games - Plataforma de Jogos Online</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to Zyphor Games!</h1>
-    <div class="game-selection">
-        <h2>Select a Game</h2>
-        <select id="gameSelect">
-            <option value="game1.html">Game 1</option>
-            <option value="game2.html">Game 2</option>
-            <option value="game3.html">Game 3</option>
-        </select>
-        <button onclick="loadGame()">Play</button>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1>⚡ Zyphor Games</h1>
+                <p>Plataforma de Jogos Online</p>
+            </div>
+            <div class="user-info">
+                <span id="score">Pontuação: 0</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Menu Inicial -->
+            <section id="menu-section" class="menu-section active">
+                <h2>Bem-vindo ao Zyphor Games!</h2>
+                <p>Escolha um jogo para começar</p>
+                <div class="games-grid">
+                    <div class="game-card" onclick="selectGame('flappy')">
+                        <div class="game-icon">🐦</div>
+                        <h3>Flappy Bird</h3>
+                        <p>Desvie dos obstáculos!</p>
+                    </div>
+                    <div class="game-card" onclick="selectGame('snake')">
+                        <div class="game-icon">🐍</div>
+                        <h3>Snake</h3>
+                        <p>Coma a comida e cresça!</p>
+                    </div>
+                    <div class="game-card" onclick="selectGame('dino')">
+                        <div class="game-icon">🦖</div>
+                        <h3>Dino Runner</h3>
+                        <p>Pule sobre os obstáculos!</p>
+                    </div>
+                    <div class="game-card" onclick="selectGame('memory')">
+                        <div class="game-icon">🧠</div>
+                        <h3>Jogo da Memória</h3>
+                        <p>Encontre os pares!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Flappy Bird Game -->
+            <section id="flappy-section" class="game-section">
+                <div class="game-header">
+                    <h2>🐦 Flappy Bird</h2>
+                    <div class="game-stats">
+                        <span>Pontos: <strong id="flappy-score">0</strong></span>
+                        <span>Melhor: <strong id="flappy-best">0</strong></span>
+                    </div>
+                </div>
+                <canvas id="flappyCanvas" width="400" height="600"></canvas>
+                <div class="game-controls">
+                    <button onclick="startFlappyBird()" id="flappy-btn">Começar Jogo</button>
+                    <button onclick="backToMenu()">Voltar ao Menu</button>
+                </div>
+            </section>
+
+            <!-- Snake Game -->
+            <section id="snake-section" class="game-section">
+                <div class="game-header">
+                    <h2>🐍 Snake</h2>
+                    <div class="game-stats">
+                        <span>Pontos: <strong id="snake-score">0</strong></span>
+                        <span>Melhor: <strong id="snake-best">0</strong></span>
+                    </div>
+                </div>
+                <canvas id="snakeCanvas" width="400" height="400"></canvas>
+                <div class="game-controls">
+                    <button onclick="startSnakeGame()" id="snake-btn">Começar Jogo</button>
+                    <button onclick="backToMenu()">Voltar ao Menu</button>
+                </div>
+            </section>
+
+            <!-- Dino Runner Game -->
+            <section id="dino-section" class="game-section">
+                <div class="game-header">
+                    <h2>🦖 Dino Runner</h2>
+                    <div class="game-stats">
+                        <span>Pontos: <strong id="dino-score">0</strong></span>
+                        <span>Melhor: <strong id="dino-best">0</strong></span>
+                    </div>
+                </div>
+                <canvas id="dinoCanvas" width="800" height="300"></canvas>
+                <div class="game-controls">
+                    <button onclick="startDinoGame()" id="dino-btn">Começar Jogo</button>
+                    <button onclick="backToMenu()">Voltar ao Menu</button>
+                </div>
+            </section>
+
+            <!-- Memory Game -->
+            <section id="memory-section" class="game-section">
+                <div class="game-header">
+                    <h2>🧠 Jogo da Memória</h2>
+                    <div class="game-stats">
+                        <span>Pontos: <strong id="memory-score">0</strong></span>
+                        <span>Melhor: <strong id="memory-best">0</strong></span>
+                    </div>
+                </div>
+                <div id="memory-grid" class="memory-grid"></div>
+                <div class="game-controls">
+                    <button onclick="startMemoryGame()" id="memory-btn">Novo Jogo</button>
+                    <button onclick="backToMenu()">Voltar ao Menu</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Zyphor Games - Todos os direitos reservados</p>
+        </footer>
     </div>
-    <div class="embed-area" id="embedArea">
-        <iframe id="gameFrame" src="" width="600" height="400" frameborder="0"></iframe>
-    </div>
-    <script>
-        function loadGame() {
-            const gameSelect = document.getElementById('gameSelect');
-            const gameFrame = document.getElementById('gameFrame');
-            gameFrame.src = gameSelect.value;
-        }
-    </script>
+
+    <script src="script.js"></script>
 </body>
 </html>
