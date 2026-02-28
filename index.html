@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyphor Games</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .game-selection { margin: 20px 0; }
+        .embed-area { border: 1px solid #ccc; width: 600px; height: 400px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Zyphor Games!</h1>
+    <div class="game-selection">
+        <h2>Select a Game</h2>
+        <select id="gameSelect">
+            <option value="game1.html">Game 1</option>
+            <option value="game2.html">Game 2</option>
+            <option value="game3.html">Game 3</option>
+        </select>
+        <button onclick="loadGame()">Play</button>
+    </div>
+    <div class="embed-area" id="embedArea">
+        <iframe id="gameFrame" src="" width="600" height="400" frameborder="0"></iframe>
+    </div>
+    <script>
+        function loadGame() {
+            const gameSelect = document.getElementById('gameSelect');
+            const gameFrame = document.getElementById('gameFrame');
+            gameFrame.src = gameSelect.value;
+        }
+    </script>
+</body>
+</html>
