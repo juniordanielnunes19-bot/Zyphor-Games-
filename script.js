@@ -1,21 +1,17 @@
-// Game Logic for Various Games
+// Flappy Bird Logic
+const flappyBird = () => {...};
 
-// Flappy Bird
-function startFlappyBird() {
-    // Implement Flappy Bird game logic here
-}
+// Snake Game Logic
+const snakeGame = () => {...};
 
-// Snake
-function startSnake() {
-    // Implement Snake game logic here
-}
+// Dino Runner Logic
+const dinoRunner = () => {...};
 
-// Dino Runner
-function startDinoRunner() {
-    // Implement Dino Runner game logic here
-}
+// Memory Game Logic
+const memoryGame = () => {...};
 
-// Memory Game
-function startMemoryGame() {
-    // Implement Memory Game logic here
-}
+// Initialize the games
+flappyBird();
+snakeGame();
+dinoRunner();
+memoryGame();
